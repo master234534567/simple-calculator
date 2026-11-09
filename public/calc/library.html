@@ -557,8 +557,8 @@
     async function loadGames() {
       try {
         const [response, imageResponse] = await Promise.all([
-          fetch("games-manifest.json", { cache: "no-store" }),
-          fetch("game-art-manifest.json", { cache: "no-store" })
+          fetch("/calc/games-manifest.json", { cache: "no-store" }),
+          fetch("/calc/game-art-manifest.json", { cache: "no-store" })
         ]);
         if (!response.ok) throw new Error("Unable to load game manifest.");
         const filenames = await response.json();

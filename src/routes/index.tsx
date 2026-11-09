@@ -45,7 +45,7 @@ function Index() {
 
       if (!transition.launch) return;
 
-      const libraryTab = window.open(libraryPath, "_blank");
+      const libraryTab = window.open("about:blank", "_blank");
       if (!libraryTab) {
         setCalculator({
           ...transition.state,
@@ -54,7 +54,41 @@ function Index() {
         });
         return;
       }
-      libraryTab.opener = null;
+
+      libraryTab.document.open();
+      libraryTab.document.write(
+        "<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>Loading...</title></head><body>Loading...</body></html>",
+      );
+      libraryTab.document.close();
+
+      void fetch(libraryPath)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Could not load the library (${response.status})`);
+          }
+          return response.text();
+        })
+        .then((html) => {
+          if (libraryTab.closed) return;
+
+          const libraryDocument = new DOMParser().parseFromString(html, "text/html");
+          if (!libraryDocument.querySelector("base")) {
+            const base = libraryDocument.createElement("base");
+            base.href = new URL("/calc/", window.location.origin).href;
+            libraryDocument.head.prepend(base);
+          }
+
+          libraryTab.document.open();
+          libraryTab.document.write(
+            `<!DOCTYPE html>${libraryDocument.documentElement.outerHTML}`,
+          );
+          libraryTab.document.close();
+        })
+        .catch((error: unknown) => {
+          if (libraryTab.closed) return;
+          const message = error instanceof Error ? error.message : "Unknown error";
+          libraryTab.document.body.textContent = `Could not load the library: ${message}`;
+        });
     },
     [calculator],
   );
