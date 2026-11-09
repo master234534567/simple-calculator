@@ -10,3 +10,10 @@
 - [x] Import the library page and its required data files.
 - [x] Reconnect the calculator's unchanged `0000` trigger to the local library.
 - [x] Verify the library loads and the complete calculator-to-library flow works.
+
+## Library expansion
+
+- [ ] Verify All 22 Pokémon, Kirka.io, and 40 additional playable embed URLs.
+- [ ] Append the verified games without changing existing entries or the `0000` unlock.
+- [ ] Add clean titles, categories, and working artwork for the additions.
+- [ ] Replay the library flow on desktop and phone and run project checks.
