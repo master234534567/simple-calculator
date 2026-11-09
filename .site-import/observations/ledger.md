@@ -52,6 +52,8 @@ The page contains one calculator section and no navigation, nested menus, hero C
 - Nine focused behavior tests pass in `src/test/calculator.test.ts`.
 - Latest preview build passes; preview page errors: none.
 
-## Remaining missing page
+## Library follow-up repair
 
-`/calc/library.html` was not part of the requested single-page import. Following `0000` therefore opens the preserved local destination, which currently shows the app's 404 page. The source library's popup DOM and screenshots were saved for a possible later import; its content was not copied into this page.
+The interactive library is now included at `public/calc/library.html`, with the unchanged 972-entry `games-manifest.json` and the existing `game-art-manifest.json`. The calculator's `0000` trigger again opens an `about:blank` tab and writes the library into it. Relative game and artwork URLs continue to use the original site, while both manifests return 200 from the local app.
+
+Desktop and phone verification passed for all 972 entries, search, category filters, opening a sample 2048 game, and returning to the library. Evidence: `fixed-library-observations.json`, `fixed-library-desktop.png`, `fixed-library-phone.png`, and `fixed-library-desktop-game.png`.

@@ -7,10 +7,6 @@
 
 ## Library follow-up
 
-- [ ] Import the library page and its required data files.
-- [ ] Reconnect the calculator's unchanged `0000` trigger to the local library.
-- [ ] Verify the library loads and the complete calculator-to-library flow works.
-
-## Follow-up not requested
-
-- The separate `/calc/library.html` page is not imported. The calculator's `0000` trigger preserves that local destination.
+- [x] Import the library page and its required data files.
+- [x] Reconnect the calculator's unchanged `0000` trigger to the local library.
+- [x] Verify the library loads and the complete calculator-to-library flow works.
