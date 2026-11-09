@@ -10,44 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CalcLibraryhtml88a430e5addf8461RouteImport } from './routes/calc_.libraryhtml-88a430e5addf8461'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CalcLibraryhtml88a430e5addf8461Route =
-  CalcLibraryhtml88a430e5addf8461RouteImport.update({
-    id: '/calc_/libraryhtml-88a430e5addf8461',
-    path: '/calc/libraryhtml-88a430e5addf8461',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/calc/libraryhtml-88a430e5addf8461': typeof CalcLibraryhtml88a430e5addf8461Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/calc/libraryhtml-88a430e5addf8461': typeof CalcLibraryhtml88a430e5addf8461Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/calc_/libraryhtml-88a430e5addf8461': typeof CalcLibraryhtml88a430e5addf8461Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/calc/libraryhtml-88a430e5addf8461'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/calc/libraryhtml-88a430e5addf8461'
-  id: '__root__' | '/' | '/calc_/libraryhtml-88a430e5addf8461'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CalcLibraryhtml88a430e5addf8461Route: typeof CalcLibraryhtml88a430e5addf8461Route
 }
 
 declare module '@tanstack/react-router' {
@@ -59,19 +48,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/calc_/libraryhtml-88a430e5addf8461': {
-      id: '/calc_/libraryhtml-88a430e5addf8461'
-      path: '/calc/libraryhtml-88a430e5addf8461'
-      fullPath: '/calc/libraryhtml-88a430e5addf8461'
-      preLoaderRoute: typeof CalcLibraryhtml88a430e5addf8461RouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CalcLibraryhtml88a430e5addf8461Route: CalcLibraryhtml88a430e5addf8461Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
