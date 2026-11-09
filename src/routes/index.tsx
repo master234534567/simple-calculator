@@ -1,23 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
+import capturedCSS from "../styles/site.css?raw";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({ meta: [{ title: "Calculator Launcher" }] }),
+  staticData: { importedDocument: { html: { "lang": "en" }, body: {  } } },
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <style>{capturedCSS}</style>
+      <div className="bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-(--panel) border border-solid border-[#ffffff14] rounded-[22px] [box-shadow:rgba(0,0,0,0.45)_0px_30px_60px] w-[min(90vw,380px)]" id="calculator" aria-live="polite">
+        <div className="items-center bg-none [background-position:0%_0%] [background-size:auto_auto] [background-repeat:repeat] [background-origin:padding-box] [background-clip:border-box] [background-attachment:scroll] bg-[#0a0f18e6] border border-solid border-[#7dd3fc38] rounded-[16px] text-(--primary) flex text-[clamp(2.2rem,6vw,3.5rem)] font-bold h-[110px] justify-end tracking-[0.08em] mb-[18px] overflow-hidden py-0 px-[18px] w-full" id="display">0</div>
+        <div className="grid gap-[12px] grid-cols-[repeat(4,1fr)]"><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">7</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">8</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">9</button><button className={"operator border-current rounded-[14px] border-none text-(--primary) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">÷</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">4</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">5</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">6</button><button className={"operator border-current rounded-[14px] border-none text-(--primary) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">×</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">1</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">2</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">3</button><button className={"operator border-current rounded-[14px] border-none text-(--primary) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">−</button><button className={"danger border-current rounded-[14px] border-none text-[#fecaca] cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">C</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">0</button><button className={"border-current rounded-[14px] border-none text-(--text) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">.</button><button className={"operator border-current rounded-[14px] border-none text-(--primary) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">+</button><button className={"action border-current rounded-[14px] border-none text-(--accent) cursor-pointer text-[1.2rem] font-bold [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button" aria-label="Backspace">⌫</button><button className={"action border-current rounded-[14px] border-none text-(--accent) cursor-pointer text-[1.2rem] font-bold col-span-3 [border-image:none] [border-width:medium] [transition:transform_0.12s,background_0.12s] [&:active]:[transform:scale(0.98)]"} type="button">=</button></div>
+      </div>
+    </>
   );
 }

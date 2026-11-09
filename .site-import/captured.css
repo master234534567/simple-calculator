@@ -1,0 +1,19 @@
+:root { --bg-1: #09111f; --bg-2: #121b2a; --panel: rgba(17, 26, 38, 0.9); --primary: #7dd3fc; --accent: #34d399; --text: #e7f3ff; --muted: #90a4c0; }
+* { box-sizing: border-box; }
+html, body { margin: 0px; width: 100%; height: 100%; font-family: Arial, Helvetica, sans-serif; background: linear-gradient(180deg, var(--bg-1), var(--bg-2)); color: var(--text); overflow: hidden; }
+body { display: grid; place-items: center; }
+#calculator { width: min(90vw, 380px); background: var(--panel); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 22px; box-shadow: rgba(0, 0, 0, 0.45) 0px 30px 60px; padding: 22px; }
+.display { width: 100%; height: 110px; border-radius: 16px; background: rgba(10, 15, 24, 0.9); border: 1px solid rgba(125, 211, 252, 0.22); margin-bottom: 18px; display: flex; align-items: center; justify-content: flex-end; padding: 0px 18px; font-size: clamp(2.2rem, 6vw, 3.5rem); letter-spacing: 0.08em; font-weight: 700; color: var(--primary); overflow: hidden; }
+.keypad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+button { border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 14px; font-size: 1.2rem; font-weight: 700; height: 60px; cursor: pointer; color: var(--text); background: rgba(148, 163, 184, 0.14); transition: transform 0.12s, background 0.12s; }
+button:hover { background: rgba(125, 211, 252, 0.18); }
+button:active { transform: scale(0.98); }
+.action { background: rgba(52, 211, 153, 0.15); color: var(--accent); }
+.operator { background: rgba(125, 211, 252, 0.14); color: var(--primary); }
+.equals { grid-column: span 3; }
+.danger { background: rgba(248, 113, 113, 0.14); color: rgb(254, 202, 202); }
+@media (max-width: 420px) {
+  #calculator { padding: 18px; }
+  button { height: 58px; }
+}
+
