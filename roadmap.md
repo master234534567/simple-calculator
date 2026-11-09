@@ -5,6 +5,8 @@
 - [x] Replay the same checks in the preview and record evidence.
 - [x] Repair confirmed mismatches, rerun checks, and report any limitations.
 
-## Follow-up not requested
+## Library follow-up
 
-- The separate `/calc/library.html` page is not imported. The calculator's `0000` trigger preserves that local destination.
+- [x] Import the library page and its required data files.
+- [x] Reconnect the calculator's unchanged `0000` trigger to the local library.
+- [x] Verify the library loads and the complete calculator-to-library flow works.

@@ -1,0 +1,67 @@
+{
+  "desktop": {
+    "initial": {
+      "url": "http://localhost:8080/",
+      "title": "Library",
+      "count": "Total Games: 972",
+      "items": 972,
+      "base": "https://master234534567.github.io/calc/",
+      "firstVisibleTitle": "1 On 1 Soccer"
+    },
+    "search": {
+      "query": "2048",
+      "visibleTitles": [
+        "2048 Cupcakes",
+        "2048",
+        "2048"
+      ]
+    },
+    "shootingVisibleCount": 65,
+    "game": {
+      "manifestPath": "Offline-HTML-Games-Pack-master/offline/2048.html",
+      "frameUrl": "https://master234534567.github.io/calc/Offline-HTML-Games-Pack-master/offline/2048.html",
+      "frameTitle": "2048",
+      "libraryTitle": "2048"
+    },
+    "backToLibrary": true,
+    "localResponses": [
+      {
+        "url": "http://localhost:8080/calc/games-manifest.json",
+        "status": 200
+      },
+      {
+        "url": "http://localhost:8080/calc/game-art-manifest.json",
+        "status": 200
+      }
+    ],
+    "pageErrors": []
+  },
+  "phone": {
+    "initial": {
+      "url": "http://localhost:8080/",
+      "title": "Library",
+      "count": "Total Games: 972",
+      "items": 972,
+      "base": "https://master234534567.github.io/calc/",
+      "firstVisibleTitle": "1 On 1 Soccer"
+    },
+    "search": {
+      "query": "2048",
+      "visibleTitles": [
+        "2048 Cupcakes",
+        "2048",
+        "2048"
+      ]
+    },
+    "shootingVisibleCount": 65,
+    "game": {
+      "manifestPath": "Offline-HTML-Games-Pack-master/offline/2048.html",
+      "frameUrl": "https://master234534567.github.io/calc/Offline-HTML-Games-Pack-master/offline/2048.html",
+      "frameTitle": "2048",
+      "libraryTitle": "2048"
+    },
+    "backToLibrary": true,
+    "localResponses": [],
+    "pageErrors": []
+  }
+}
