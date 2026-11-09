@@ -1,0 +1,70 @@
+{
+  "desktop": {
+    "keyboard": {
+      "12+3 Enter": {
+        "expected": "15",
+        "actual": "15",
+        "status": "pass"
+      },
+      "Escape": {
+        "expected": "0",
+        "actual": "0",
+        "status": "pass"
+      },
+      "Backspace": {
+        "expected": "12",
+        "actual": "12",
+        "status": "pass"
+      },
+      "Delete": {
+        "expected": "0",
+        "actual": "0",
+        "status": "pass"
+      }
+    },
+    "launch": {
+      "trigger": "0000",
+      "expectedDestination": "http://localhost:8080/calc/library.html",
+      "actualDestination": "http://localhost:8080/calc/library.html",
+      "status": "pass",
+      "contentStatus": "not-imported",
+      "title": "Calculator Launcher",
+      "text": "404\nPage not found\n\nThe page you're looking for doesn't exist or has been moved.\n\nGo home"
+    },
+    "pageErrors": []
+  },
+  "phone": {
+    "keyboard": {
+      "12+3 Enter": {
+        "expected": "15",
+        "actual": "15",
+        "status": "pass"
+      },
+      "Escape": {
+        "expected": "0",
+        "actual": "0",
+        "status": "pass"
+      },
+      "Backspace": {
+        "expected": "12",
+        "actual": "12",
+        "status": "pass"
+      },
+      "Delete": {
+        "expected": "0",
+        "actual": "0",
+        "status": "pass"
+      }
+    },
+    "launch": {
+      "trigger": "0000",
+      "expectedDestination": "http://localhost:8080/calc/library.html",
+      "actualDestination": "http://localhost:8080/calc/library.html",
+      "status": "pass",
+      "contentStatus": "not-imported",
+      "title": "Calculator Launcher",
+      "text": "404\nPage not found\n\nThe page you're looking for doesn't exist or has been moved.\n\nGo home"
+    },
+    "pageErrors": []
+  }
+}

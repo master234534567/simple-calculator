@@ -1,0 +1,41 @@
+@layer base { img, video { max-width: none; } html, body, html *, html::before, html::after, html *::before, html *::after, html *::marker, html *::placeholder, html *::file-selector-button { all: revert-layer; } }
+
+:root { --bg-1: #09111f; --bg-2: #121b2a; --panel: rgba(17, 26, 38, 0.9); --primary: #7dd3fc; --accent: #34d399; --text: #e7f3ff; --muted: #90a4c0; }
+* { box-sizing: border-box; }
+html, body { margin: 0px; width: 100%; height: 100%; font-family: Arial, Helvetica, sans-serif; background: linear-gradient(180deg, var(--bg-1), var(--bg-2)); color: var(--text); overflow: hidden; }
+body { display: grid; place-items: center; }
+#calculator {
+  padding: 22px;
+}
+
+button {
+  height: 60px;
+  background: rgba(148,163,184,0.14);
+}
+
+button:hover { background: rgba(125, 211, 252, 0.18); }
+.action {
+  background: rgba(52,211,153,0.15);
+}
+
+.operator {
+  background: rgba(125,211,252,0.14);
+}
+
+.danger {
+  background: rgba(248,113,113,0.14);
+}
+
+@media (max-width:420px) {
+  #calculator {
+    padding: 18px;
+  }
+}
+
+@media (max-width:420px) {
+  button {
+    height: 58px;
+  }
+}
+
+

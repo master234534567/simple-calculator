@@ -1,0 +1,403 @@
+{
+  "source": "http://master234534567.github.io/calc",
+  "desktop": {
+    "initial": {
+      "title": "Calculator Launcher",
+      "viewport": {
+        "width": 1280,
+        "height": 1800
+      },
+      "bodyText": "0\n7\n8\n9\n\u00f7\n4\n5\n6\n\u00d7\n1\n2\n3\n\u2212\nC\n0\n.\n+\n\u232b\n=",
+      "calculator": {
+        "x": 450,
+        "y": 639,
+        "width": 380,
+        "height": 522,
+        "padding": "22px",
+        "background": "rgba(17, 26, 38, 0.9) none repeat scroll 0% 0% / auto padding-box border-box",
+        "borderRadius": "22px"
+      },
+      "display": "0",
+      "buttons": [
+        {
+          "text": "7",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "8",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "9",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "\u00f7",
+          "aria": null,
+          "class": "operator"
+        },
+        {
+          "text": "4",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "5",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "6",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "\u00d7",
+          "aria": null,
+          "class": "operator"
+        },
+        {
+          "text": "1",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "2",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "3",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "\u2212",
+          "aria": null,
+          "class": "operator"
+        },
+        {
+          "text": "C",
+          "aria": null,
+          "class": "danger"
+        },
+        {
+          "text": "0",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": ".",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "+",
+          "aria": null,
+          "class": "operator"
+        },
+        {
+          "text": "\u232b",
+          "aria": "Backspace",
+          "class": "action"
+        },
+        {
+          "text": "=",
+          "aria": null,
+          "class": "action equals"
+        }
+      ],
+      "links": [],
+      "media": [],
+      "assets": [],
+      "scrolling": [],
+      "documentScroll": {
+        "height": 1800,
+        "width": 1280
+      }
+    },
+    "operations": {
+      "addition": {
+        "labels": [
+          "1",
+          "2",
+          "+",
+          "3",
+          "="
+        ],
+        "expected": "15",
+        "actual": "15",
+        "status": "pass"
+      },
+      "subtraction": {
+        "labels": [
+          "5",
+          "\u2212",
+          "8",
+          "="
+        ],
+        "expected": "-3",
+        "actual": "-3",
+        "status": "pass"
+      },
+      "multiplication": {
+        "labels": [
+          "7",
+          "\u00d7",
+          "8",
+          "="
+        ],
+        "expected": "56",
+        "actual": "56",
+        "status": "pass"
+      },
+      "division": {
+        "labels": [
+          "9",
+          "\u00f7",
+          "2",
+          "="
+        ],
+        "expected": "4.5",
+        "actual": "4.5",
+        "status": "pass"
+      },
+      "decimal-addition": {
+        "labels": [
+          "1",
+          ".",
+          "2",
+          "+",
+          "3",
+          ".",
+          "4",
+          "="
+        ],
+        "expected": "4.6",
+        "actual": "4.6",
+        "status": "pass"
+      },
+      "backspace": {
+        "expected": "12",
+        "actual": "12",
+        "status": "pass"
+      },
+      "clear": {
+        "expected": "0",
+        "actual": "0",
+        "status": "pass"
+      }
+    },
+    "scroll": {
+      "before": [],
+      "during": [],
+      "after": [],
+      "windowYAfter": 0
+    },
+    "consoleErrors": [
+      "console error: Failed to load resource: the server responded with a status of 404 ()"
+    ]
+  },
+  "phone": {
+    "initial": {
+      "title": "Calculator Launcher",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "bodyText": "0\n7\n8\n9\n\u00f7\n4\n5\n6\n\u00d7\n1\n2\n3\n\u2212\nC\n0\n.\n+\n\u232b\n=",
+      "calculator": {
+        "x": 19.5,
+        "y": 170,
+        "width": 351,
+        "height": 504,
+        "padding": "18px",
+        "background": "rgba(17, 26, 38, 0.9) none repeat scroll 0% 0% / auto padding-box border-box",
+        "borderRadius": "22px"
+      },
+      "display": "0",
+      "buttons": [
+        {
+          "text": "7",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "8",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "9",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "\u00f7",
+          "aria": null,
+          "class": "operator"
+        },
+        {
+          "text": "4",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "5",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "6",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "\u00d7",
+          "aria": null,
+          "class": "operator"
+        },
+        {
+          "text": "1",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "2",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "3",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "\u2212",
+          "aria": null,
+          "class": "operator"
+        },
+        {
+          "text": "C",
+          "aria": null,
+          "class": "danger"
+        },
+        {
+          "text": "0",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": ".",
+          "aria": null,
+          "class": ""
+        },
+        {
+          "text": "+",
+          "aria": null,
+          "class": "operator"
+        },
+        {
+          "text": "\u232b",
+          "aria": "Backspace",
+          "class": "action"
+        },
+        {
+          "text": "=",
+          "aria": null,
+          "class": "action equals"
+        }
+      ],
+      "links": [],
+      "media": [],
+      "assets": [],
+      "scrolling": [],
+      "documentScroll": {
+        "height": 844,
+        "width": 390
+      }
+    },
+    "operations": {
+      "addition": {
+        "labels": [
+          "1",
+          "2",
+          "+",
+          "3",
+          "="
+        ],
+        "expected": "15",
+        "actual": "15",
+        "status": "pass"
+      },
+      "subtraction": {
+        "labels": [
+          "5",
+          "\u2212",
+          "8",
+          "="
+        ],
+        "expected": "-3",
+        "actual": "-3",
+        "status": "pass"
+      },
+      "multiplication": {
+        "labels": [
+          "7",
+          "\u00d7",
+          "8",
+          "="
+        ],
+        "expected": "56",
+        "actual": "56",
+        "status": "pass"
+      },
+      "division": {
+        "labels": [
+          "9",
+          "\u00f7",
+          "2",
+          "="
+        ],
+        "expected": "4.5",
+        "actual": "4.5",
+        "status": "pass"
+      },
+      "decimal-addition": {
+        "labels": [
+          "1",
+          ".",
+          "2",
+          "+",
+          "3",
+          ".",
+          "4",
+          "="
+        ],
+        "expected": "4.6",
+        "actual": "4.6",
+        "status": "pass"
+      },
+      "backspace": {
+        "expected": "12",
+        "actual": "12",
+        "status": "pass"
+      },
+      "clear": {
+        "expected": "0",
+        "actual": "0",
+        "status": "pass"
+      }
+    },
+    "scroll": {
+      "before": [],
+      "during": [],
+      "after": [],
+      "windowYAfter": 0
+    },
+    "consoleErrors": []
+  }
+}
