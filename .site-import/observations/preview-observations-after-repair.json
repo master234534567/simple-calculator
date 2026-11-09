@@ -114,7 +114,6 @@
       "media": [],
       "assets": [
         "http://localhost:8080/src/styles.css",
-        "http://localhost:8080/@tanstack-start/styles.css?routes=__root__%2C%2F",
         "http://localhost:8080/@id/virtual:tanstack-start-dev-client-entry"
       ],
       "scrolling": [],
@@ -133,9 +132,8 @@
           "="
         ],
         "expected": "15",
-        "actual": "0",
-        "status": "failed",
-        "error": "Page.wait_for_function: Timeout 1800ms exceeded."
+        "actual": "15",
+        "status": "pass"
       },
       "subtraction": {
         "labels": [
@@ -328,7 +326,6 @@
       "media": [],
       "assets": [
         "http://localhost:8080/src/styles.css",
-        "http://localhost:8080/@tanstack-start/styles.css?routes=__root__%2C%2F",
         "http://localhost:8080/@id/virtual:tanstack-start-dev-client-entry"
       ],
       "scrolling": [],
@@ -347,9 +344,8 @@
           "="
         ],
         "expected": "15",
-        "actual": "0",
-        "status": "failed",
-        "error": "Page.wait_for_function: Timeout 1800ms exceeded."
+        "actual": "15",
+        "status": "pass"
       },
       "subtraction": {
         "labels": [
