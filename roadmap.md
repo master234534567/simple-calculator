@@ -17,3 +17,10 @@
 - [ ] Append the verified games without changing existing entries or the `0000` unlock.
 - [ ] Add clean titles, categories, and working artwork for the additions.
 - [ ] Replay the library flow on desktop and phone and run project checks.
+
+## GitHub Pages deployment
+
+- [x] Add a static deployment workflow for the GitHub site.
+- [x] Make calculator and manifest paths work under a repository subfolder.
+- [x] Verify the unchanged 0000 popup and library on desktop and phone.
+- [ ] Run the workflow on GitHub (requires the user to enable GitHub Actions as the Pages source).

@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 
 import capturedCSS from "../styles/site.css?raw";
+import { getLibraryUrl } from "@/lib/library-location";
 import {
   formatCalculatorDisplay,
   initialCalculatorState,
   transitionCalculator,
   type CalculatorAction,
 } from "@/lib/calculator";
-
-const libraryPath = "/calc/library.html";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -61,7 +60,8 @@ function Index() {
       );
       libraryTab.document.close();
 
-      void fetch(libraryPath)
+      const libraryUrl = getLibraryUrl(import.meta.env.BASE_URL, window.location.origin);
+      void fetch(libraryUrl)
         .then((response) => {
           if (!response.ok) {
             throw new Error(`Could not load the library (${response.status})`);
@@ -72,9 +72,13 @@ function Index() {
           if (libraryTab.closed) return;
 
           const libraryDocument = new DOMParser().parseFromString(html, "text/html");
+          const manifestBase = libraryDocument.createElement("meta");
+          manifestBase.name = "library-manifest-base";
+          manifestBase.content = new URL("./", libraryUrl).href;
+          libraryDocument.head.append(manifestBase);
           if (!libraryDocument.querySelector("base")) {
             const base = libraryDocument.createElement("base");
-            base.href = new URL("/calc/", window.location.origin).href;
+            base.href = new URL("./", libraryUrl).href;
             libraryDocument.head.prepend(base);
           }
 
