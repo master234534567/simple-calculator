@@ -10,7 +10,7 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // GitHub Pages supplies its repository prefix; normal Lovable builds stay at /.
-const pagesBase = process.env.GITHUB_PAGES_BASE;
+const pagesBase = process.env['GITHUB_PAGES_BASE'];
 const base = pagesBase ? `/${pagesBase.replace(/^\/+|\/+$/g, "")}/`.replace(/^\/\/$/, "/") : "/";
 
 export default defineConfig({
@@ -18,7 +18,7 @@ export default defineConfig({
   nitro: { output: { dir: "dist", serverDir: "dist/server", publicDir: "dist/client" } },
   tanstackStart: {
     router: { basepath: base },
-    pages: [{ path: base, prerender: { outputPath: "index.html" } }],
+    pages: [{ path: base, prerender: { outputPath: "/" } }],
     prerender: { enabled: true, autoStaticPathsDiscovery: false, crawlLinks: false },
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this

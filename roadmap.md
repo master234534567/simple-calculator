@@ -20,6 +20,7 @@
 
 ## GitHub Pages deployment
 
-- [ ] Add a static deployment workflow for the GitHub site.
-- [ ] Make calculator and manifest paths work under a repository subfolder.
-- [ ] Verify the unchanged 0000 popup and library on desktop and phone.
+- [x] Add a static deployment workflow for the GitHub site.
+- [x] Make calculator and manifest paths work under a repository subfolder.
+- [x] Verify the unchanged 0000 popup and library on desktop and phone.
+- [ ] Run the workflow on GitHub (requires the user to enable GitHub Actions as the Pages source).
