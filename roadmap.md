@@ -24,3 +24,10 @@
 - [x] Make calculator and manifest paths work under a repository subfolder.
 - [x] Verify the unchanged 0000 popup and library on desktop and phone.
 - [ ] Run the workflow on GitHub (requires the user to enable GitHub Actions as the Pages source).
+
+## Four requested game additions
+
+- [ ] Resolve playable URLs and PNG artwork for Plague, Grand V, Julius, and Clover Pit.
+- [ ] Append additions without changing the existing manifest entries or 0000 unlock.
+- [ ] Reproduce Clover Pit's loading stall and apply a verified remedy where possible.
+- [ ] Verify the added games and artwork through the library.
