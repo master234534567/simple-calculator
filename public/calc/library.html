@@ -556,10 +556,13 @@
 
     async function loadGames() {
       try {
-        const manifestOrigin = window.opener ? window.opener.location.origin : window.location.origin;
+        // about:blank receives this value from the calculator; direct visits use
+        // the actual page URL, not the remote <base> used by existing games.
+        const manifestBase = document.querySelector('meta[name="library-manifest-base"]')?.content
+          || new URL("./", window.location.href).href;
         const [response, imageResponse] = await Promise.all([
-          fetch(new URL("/calc/games-manifest.json", manifestOrigin).href, { cache: "no-store" }),
-          fetch(new URL("/calc/game-art-manifest.json", manifestOrigin).href, { cache: "no-store" })
+          fetch(new URL("games-manifest.json", manifestBase).href, { cache: "no-store" }),
+          fetch(new URL("game-art-manifest.json", manifestBase).href, { cache: "no-store" })
         ]);
         if (!response.ok) throw new Error("Unable to load game manifest.");
         const filenames = await response.json();

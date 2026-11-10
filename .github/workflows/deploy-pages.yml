@@ -1,0 +1,49 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/configure-pages@v5
+        id: pages
+      - run: bun install --frozen-lockfile
+      - run: bun run test
+      - name: Build static calculator and library
+        run: bun run build
+        env:
+          GITHUB_PAGES_BASE: ${{ steps.pages.outputs.base_path }}
+      - name: Check static export
+        run: |
+          test -s dist/client/index.html
+          test -s dist/client/calc/library.html
+          test -s dist/client/calc/games-manifest.json
+          touch dist/client/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/client
+      - uses: actions/deploy-pages@v4
+        id: deployment

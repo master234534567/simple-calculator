@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Export the public calculator through TanStack prerendering and deploy only `dist/client` to GitHub Pages; static hosting cannot run the server bundle.
+- Derive app asset paths from Vite's deployment base and pass the library directory explicitly into the about:blank popup; repository sites must not fetch manifests from the domain root.
+- Preserve the library's original remote base for existing games while resolving manifests against the local library directory; the game payloads are not part of this repository.
