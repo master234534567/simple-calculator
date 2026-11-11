@@ -27,6 +27,7 @@
 
 ## Four requested game additions
 
+- [ ] Resume the four additions with confirmed playable links and explicit notices for unavailable deployments.
 - [ ] Resolve playable URLs and PNG artwork for Plague, Grand V, Julius, and Clover Pit.
 - [ ] Append additions without changing the existing manifest entries or 0000 unlock.
 - [ ] Reproduce Clover Pit's loading stall and apply a verified remedy where possible.
