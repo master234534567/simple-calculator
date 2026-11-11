@@ -97,5 +97,9 @@
   "Offline-HTML-Games-Pack-master/offline/friday-night-funkin.html": "gamelist/Friday-Night-Funkin/Friday-Night-Funkin.png",
   "Offline-HTML-Games-Pack-master/offline/fruit-ninja.html": "gamelist/Fruit-Ninja/fruitninja.png",
   "gamelist/Portal-Flash/index.html": "gamelist/Portal-Flash/portalflash.jpg",
-  "gamelist/60-Seconds/index.html": null
+  "gamelist/60-Seconds/index.html": null,
+  "https://wasm.rip/files/plauge/index.html": "https://id-preview--4d15e1a7-393b-4623-b2d0-f814e31694ad.lovable.app/__l5e/assets-v1/c5a5f927-d2cb-45ca-8b21-3327ef77d615/plague.png",
+  "./additions/grand-v.html": "https://id-preview--4d15e1a7-393b-4623-b2d0-f814e31694ad.lovable.app/__l5e/assets-v1/bd50837e-59ab-46da-ad2d-986aafab9b66/grand-v.png",
+  "./additions/julius.html": "https://id-preview--4d15e1a7-393b-4623-b2d0-f814e31694ad.lovable.app/__l5e/assets-v1/a4eb99fd-db73-4856-a359-e8f49a3dedc3/julius.png",
+  "./additions/clover-pit.html": "https://id-preview--4d15e1a7-393b-4623-b2d0-f814e31694ad.lovable.app/__l5e/assets-v1/886c7fd8-84d1-4de8-81dc-3accc0bca53e/clover-pit.png"
 }
