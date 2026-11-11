@@ -89,7 +89,7 @@ window.addEventListener("pagehide", () => objectUrls.forEach(url => URL.revokeOb
     canvas.hidden = false;
     canvas.width = 960;
     canvas.height = 540;
-    let timer = setTimeout(() => {
+    const timer = setTimeout(() => {
       statusElement.textContent = "Startup is taking longer than expected. You can retry.";
       retry.hidden = false;
     }, 90000);
@@ -99,8 +99,19 @@ window.addEventListener("pagehide", () => objectUrls.forEach(url => URL.revokeOb
         frameworkUrl: base + "Build/CloverPit.framework.js",
         streamingAssetsUrl: base + "StreamingAssets",
         companyName: "Panik Arcade", productName: "CloverPit", productVersion: "1.3",
+        devicePixelRatio: 1,
         showBanner: (message, type) => { if (type === "error") showFailure(message); },
-      }, progress => { progressElement.value = 0.8 + progress * 0.2; });
+      }, progress => {
+        progressElement.value = 0.8 + progress * 0.2;
+        // Unity 6 calls progress(1) in postRun, once the runtime is active.
+        // Its later WaitForInitialization promise can remain pending even
+        // while the game renders; do not leave a loader covering that game.
+        if (progress === 1) {
+          document.getElementById("loading").hidden = true;
+          clearTimeout(timer);
+          canvas.focus();
+        }
+      });
       document.getElementById("loading").hidden = true;
       canvas.focus();
     } finally { clearTimeout(timer); }

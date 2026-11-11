@@ -4,6 +4,8 @@ body { margin: 0; background: var(--background); color: var(--foreground); font-
 #game { display: block; width: 100vw; height: 100dvh; }
 #game[hidden], [hidden] { display: none; }
 #loading, main { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; text-align: center; }
+#loading { position: fixed; inset: 0; background: var(--background); }
+#loading[hidden] { display: none; }
 h1 { font-size: 32px; }
 p { max-width: 560px; line-height: 1.6; overflow-wrap: anywhere; color: var(--muted); }
 progress { width: min(100%, 360px); accent-color: var(--accent); }
