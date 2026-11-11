@@ -100,6 +100,7 @@ window.addEventListener("pagehide", () => objectUrls.forEach(url => URL.revokeOb
         streamingAssetsUrl: base + "StreamingAssets",
         companyName: "Panik Arcade", productName: "CloverPit", productVersion: "1.3",
         devicePixelRatio: 1,
+        matchWebGLToCanvasSize: false,
         showBanner: (message, type) => { if (type === "error") showFailure(message); },
       }, progress => {
         progressElement.value = 0.8 + progress * 0.2;
