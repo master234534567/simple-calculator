@@ -10,7 +10,7 @@ describe("Four requested library additions", () => {
     expect(games).toHaveLength(976);
     expect(games.slice(972)).toEqual([
       "https://wasm.rip/files/plauge/index.html",
-      "./additions/grand-v.html",
+      "./additions/mythos/index.html",
       "./additions/julius.html",
       "./additions/clover-pit.html",
     ]);
