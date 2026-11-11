@@ -32,3 +32,6 @@ use the editor.
 - Export the public calculator through TanStack prerendering and deploy only `dist/client` to GitHub Pages; static hosting cannot run the server bundle.
 - Derive app asset paths from Vite's deployment base and pass the library directory explicitly into the about:blank popup; repository sites must not fetch manifests from the domain root.
 - Preserve the library's original remote base for existing games while resolving manifests against the local library directory; the game payloads are not part of this repository.
+- Resolve new `./additions/` launcher paths against the local library directory; isolated static launchers keep upstream game-specific startup fixes from changing existing games.
+- Keep the official Julius browser release and its AGPL license together, with its matching source linked; proprietary Caesar III data must be supplied by the player.
+- Store new artwork as asset pointers with absolute Lovable serving URLs in the art manifest; GitHub Pages has no Lovable asset-serving endpoint.

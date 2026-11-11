@@ -183,8 +183,14 @@
     let gameFallbacks = new Map();
     let gamePaths = new Set();
     let gameImageManifest = {};
+    const libraryDirectory = document.querySelector('meta[name="library-manifest-base"]')?.content
+      || new URL("./", window.location.href).href;
     const gameTitleOverrides = new Map([
-      ["https://rgc.zone/ports/ac-webport-main/index.html", "Animal Crossing"]
+      ["https://rgc.zone/ports/ac-webport-main/index.html", "Animal Crossing"],
+      ["https://wasm.rip/files/plauge/index.html", "Plague Inc Evolved"],
+      ["./additions/grand-v.html", "Grand V"],
+      ["./additions/julius.html", "Julius"],
+      ["./additions/clover-pit.html", "Clover Pit"]
     ]);
     let activeGameFilter = "all";
     const popularGameKeys = new Set([
@@ -204,7 +210,7 @@
       "lastbreath",
       "untitledgoosegame"
     ]);
-    const newGameKeys = new Set(["60seconds", "animalcrossing"]);
+    const newGameKeys = new Set(["60seconds", "animalcrossing", "plagueincevolved", "grandv", "julius", "cloverpit"]);
     const gameCategoryGroups = {
       racing: [
         ["3D Car Simulator"],
@@ -494,6 +500,7 @@
     }
 
     async function openGame(url, title) {
+      if (url.startsWith("./additions/")) url = new URL(url, libraryDirectory).href;
       currentGameTitle.textContent = title;
       gameFrame.hidden = true;
       gameError.hidden = true;
@@ -544,7 +551,8 @@
 
     function reloadGame() {
       if (gameFrame.src) {
-        gameFrame.contentWindow.location.reload();
+        const currentUrl = gameFrame.src;
+        gameFrame.src = currentUrl;
       }
     }
 
