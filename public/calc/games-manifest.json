@@ -967,11 +967,13 @@
   "gamelist/qwop/index.html",
   "gamelist/sandspiel/index.html",
   "gamelist/save-bridge.html",
-  "gamelist/shapez-Demo-Factory-Automation-Game/index.html",
-  "gamelist/slitherio/index.html",
-  "https://rgc.zone/ports/ac-webport-main/index.html",
-  "gamelist/60-Seconds/index.html",
-  "https://wasm.rip/files/plauge/index.html",
-  "./additions/julius.html",
-  "./additions/clover-pit.html"
+ 
+"gamelist/shapez-Demo-Factory-Automation-Game/index.html",
+"gamelist/slitherio/index.html",
+"https://rgc.zone/ports/ac-webport-main/index.html",
+"gamelist/60-Seconds/index.html",
+"https://wasm.rip/files/plauge/index.html",
+"./additions/julius.html",
+"./additions/hollow-knight-silksong/index.html",
+"./additions/clover-pit.html"
 ]
