@@ -32,3 +32,10 @@
 - [ ] Append additions without changing the existing manifest entries or 0000 unlock.
 - [ ] Reproduce Clover Pit's loading stall and apply a verified remedy where possible.
 - [ ] Verify the added games and artwork through the library.
+
+## Requested replacements and graphics repair
+
+- [ ] Replace the former Grand V slot with a verified embedded PokéRogue and artwork.
+- [ ] Reproduce Plague's black graphics and verify a targeted repair where possible.
+- [ ] Find and verify the requested GitHub Breath of the Wild browser port before adding it.
+- [ ] Test the changed library entries without changing 0000 or unrelated games.
