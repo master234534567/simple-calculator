@@ -35,3 +35,4 @@ use the editor.
 - Resolve new `./additions/` launcher paths against the local library directory; isolated static launchers keep upstream game-specific startup fixes from changing existing games.
 - Keep the official Julius browser release and its AGPL license together, with its matching source linked; proprietary Caesar III data must be supplied by the player.
 - Store new artwork as asset pointers with absolute Lovable serving URLs in the art manifest; GitHub Pages has no Lovable asset-serving endpoint.
+- Identify added games in the New Games filter by manifest path, with accent-insensitive title aliases; changing a display name must not hide the game.
