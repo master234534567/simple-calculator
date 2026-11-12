@@ -37,5 +37,7 @@
 
 - [ ] Replace the former Grand V slot with a verified embedded PokéRogue and artwork.
 - [ ] Reproduce Plague's black graphics and verify a targeted repair where possible.
-- [ ] Find and verify the requested GitHub Breath of the Wild browser port before adding it.
+- [x] Skip Breath of the Wild at the user's request; no verified release link supplied.
 - [ ] Test the changed library entries without changing 0000 or unrelated games.
+- [ ] Repair GitHub's test failure and confirm Bun is installed by the deployment workflow.
+- [ ] Add verified original cover mappings for missing and broken library artwork.
