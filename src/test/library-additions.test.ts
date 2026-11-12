@@ -10,7 +10,7 @@ describe("Four requested library additions", () => {
     expect(games).toHaveLength(976);
     expect(games.slice(972)).toEqual([
       "https://wasm.rip/files/plauge/index.html",
-      "https://pokerogue.net/",
+      "./additions/pokerogue/index.html",
       "./additions/julius.html",
       "./additions/clover-pit.html",
     ]);
@@ -18,7 +18,7 @@ describe("Four requested library additions", () => {
   });
 
   it("replaces only the former Grand V slot with the official PokéRogue embed", () => {
-    expect(games[973]).toBe("https://pokerogue.net/");
+    expect(games[973]).toBe("./additions/pokerogue/index.html");
     expect(games).not.toContain("./additions/grand-v.html");
     expect(games).not.toContain("./additions/mythos/index.html");
   });

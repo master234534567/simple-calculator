@@ -189,7 +189,7 @@
     const gameTitleOverrides = new Map([
       ["https://rgc.zone/ports/ac-webport-main/index.html", "Animal Crossing"],
       ["https://wasm.rip/files/plauge/index.html", "Plague Inc Evolved"],
-      ["https://pokerogue.net/", "PokéRogue"],
+      ["./additions/pokerogue/index.html", "PokéRogue"],
       ["./additions/julius.html", "Julius"],
       ["./additions/clover-pit.html", "Clover Pit"]
     ]);
@@ -216,7 +216,7 @@
       "https://rgc.zone/ports/ac-webport-main/index.html",
       "gamelist/60-Seconds/index.html",
       "https://wasm.rip/files/plauge/index.html",
-      "https://pokerogue.net/",
+      "./additions/pokerogue/index.html",
       "./additions/julius.html",
       "./additions/clover-pit.html"
     ]);
@@ -640,7 +640,7 @@
           const imageCandidates = getImageCandidates(filename);
           if (imageCandidates.length > 0) {
             const image = document.createElement("img");
-            if (filename === "https://pokerogue.net/") image.className = "game-logo";
+            if (filename === "./additions/pokerogue/index.html") image.className = "game-logo";
             image.alt = "";
             const mappedOfflineImage = filename.startsWith("Offline-HTML-Games-Pack-master/offline/")
               && Boolean(gameImageManifest[filename]);

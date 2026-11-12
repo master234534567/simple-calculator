@@ -972,7 +972,7 @@
   "https://rgc.zone/ports/ac-webport-main/index.html",
   "gamelist/60-Seconds/index.html",
   "https://wasm.rip/files/plauge/index.html",
-  "https://pokerogue.net/",
+  "./additions/pokerogue/index.html",
   "./additions/julius.html",
   "./additions/clover-pit.html"
 ]

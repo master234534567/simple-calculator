@@ -21,7 +21,7 @@ describe("New Games visibility", () => {
     expect(isNewGame("PokéRogue")).toBe(true);
   });
   it("keeps PokéRogue visible after any display-name change", () => {
-    expect(isNewGame("A completely different name", "https://pokerogue.net/")).toBe(true);
+    expect(isNewGame("A completely different name", "./additions/pokerogue/index.html")).toBe(true);
   });
   it("does not mark unrelated games as new", () => {
     expect(isNewGame("2048", "gamelist/2048/index.html")).toBe(false);
