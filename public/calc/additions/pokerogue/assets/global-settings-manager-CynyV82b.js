@@ -1,1 +1,0 @@
-import{n as e,t}from"./global-settings-manager-_jyKL_i7.js";e();export{t as initSettingsManager};
