@@ -10,11 +10,23 @@ describe("Four requested library additions", () => {
     expect(games).toHaveLength(976);
     expect(games.slice(972)).toEqual([
       "https://wasm.rip/files/plauge/index.html",
-      "./additions/mythos/index.html",
+      "https://pokerogue.net/",
       "./additions/julius.html",
       "./additions/clover-pit.html",
     ]);
     expect(games[971]).toBe("gamelist/60-Seconds/index.html");
+  });
+
+  it("replaces only the former Grand V slot with the official PokéRogue embed", () => {
+    expect(games[973]).toBe("https://pokerogue.net/");
+    expect(games).not.toContain("./additions/grand-v.html");
+    expect(games).not.toContain("./additions/mythos/index.html");
+  });
+
+  it("provides original artwork for more than 800 library games", () => {
+    const originals = Object.keys(art).filter(path => path.startsWith("gamelist/"));
+    expect(originals.length).toBeGreaterThanOrEqual(800);
+    expect(art["gamelist/2048/index.html"]).toBe("https://master234534567.github.io/calc/gamelist/2048/2048.jpg");
   });
 
   it("maps all four additions to PNG artwork usable outside Lovable hosting", () => {

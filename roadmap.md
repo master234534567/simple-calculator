@@ -35,7 +35,9 @@
 
 ## Requested replacements and graphics repair
 
-- [ ] Replace the former Grand V slot with a verified embedded PokéRogue and artwork.
-- [ ] Reproduce Plague's black graphics and verify a targeted repair where possible.
-- [ ] Find and verify the requested GitHub Breath of the Wild browser port before adding it.
-- [ ] Test the changed library entries without changing 0000 or unrelated games.
+- [x] Replace the former Grand V slot with embedded PokéRogue and its original logo; login screen verified on desktop and phone.
+- [ ] Repair Plague's reported black graphics (blocked: graphics rendered correctly in the browser check; affected device/session needed to reproduce).
+- [x] Skip Breath of the Wild at the user's request; no verified release link supplied.
+- [x] Test changed entries through the unchanged 0000 popup on desktop and phone; 16 tests pass.
+- [x] Pin Bun installation and explicitly run Vitest through the package script; current tests pass (actual GitHub run remains unverified).
+- [x] Add 815 original cover mappings after verifying all 775 distinct image URLs.

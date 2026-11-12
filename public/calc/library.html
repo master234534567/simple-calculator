@@ -19,6 +19,7 @@
     .game-card:hover { background: #252525; }
     .game-art { position: relative; display: grid; place-items: center; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: linear-gradient(135deg, #173b4a, #25345a 55%, #3c2450); }
     .game-art img { width: 100%; height: 100%; object-fit: cover; }
+    .game-art img.game-logo { object-fit: contain; padding: 12px; image-rendering: pixelated; }
     .game-art-fallback { padding: 12px; color: #fff; font-size: 22px; font-weight: 800; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); }
     .game-badge { position: absolute; top: 8px; left: 8px; z-index: 2; padding: 5px 7px; border-radius: 3px; font-size: 11px; line-height: 1; font-weight: 800; }
     .game-badge.hot { background: #f97316; color: #fff; }
@@ -188,7 +189,7 @@
     const gameTitleOverrides = new Map([
       ["https://rgc.zone/ports/ac-webport-main/index.html", "Animal Crossing"],
       ["https://wasm.rip/files/plauge/index.html", "Plague Inc Evolved"],
-      ["./additions/mythos/index.html", "Eldritch Horrors"],
+      ["https://pokerogue.net/", "PokéRogue"],
       ["./additions/julius.html", "Julius"],
       ["./additions/clover-pit.html", "Clover Pit"]
     ]);
@@ -210,7 +211,7 @@
       "lastbreath",
       "untitledgoosegame"
     ]);
-    const newGameKeys = new Set(["60seconds", "animalcrossing", "plagueincevolved", "grandv", "julius", "cloverpit"]);
+    const newGameKeys = new Set(["60seconds", "animalcrossing", "plagueincevolved", "pokerogue", "julius", "cloverpit"]);
     const gameCategoryGroups = {
       racing: [
         ["3D Car Simulator"],
@@ -631,6 +632,7 @@
           const imageCandidates = getImageCandidates(filename);
           if (imageCandidates.length > 0) {
             const image = document.createElement("img");
+            if (filename === "https://pokerogue.net/") image.className = "game-logo";
             image.alt = "";
             const mappedOfflineImage = filename.startsWith("Offline-HTML-Games-Pack-master/offline/")
               && Boolean(gameImageManifest[filename]);
