@@ -212,6 +212,14 @@
       "untitledgoosegame"
     ]);
     const newGameKeys = new Set(["60seconds", "animalcrossing", "plagueincevolved", "pokerogue", "julius", "cloverpit"]);
+    const newGamePaths = new Set([
+      "https://rgc.zone/ports/ac-webport-main/index.html",
+      "gamelist/60-Seconds/index.html",
+      "https://wasm.rip/files/plauge/index.html",
+      "https://pokerogue.net/",
+      "./additions/julius.html",
+      "./additions/clover-pit.html"
+    ]);
     const gameCategoryGroups = {
       racing: [
         ["3D Car Simulator"],
@@ -438,7 +446,7 @@
     ]);
 
     function normalizeGameName(name) {
-      return String(name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      return String(name || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
     }
 
     function normalizePopularKey(value) {
@@ -455,7 +463,7 @@
     }
 
     function isNewGame(title, filename = "") {
-      return [title, filename].some((value) => newGameKeys.has(normalizeGameName(value)));
+      return newGamePaths.has(filename) || [title, filename].some((value) => newGameKeys.has(normalizeGameName(value)));
     }
 
     function getGameCategoryRank(title, filename, category) {
