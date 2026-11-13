@@ -1,5 +1,13 @@
 # Website import
 
+## Current library updates
+
+- [ ] Sync missing cover mappings and saved addition artwork without modifying PokéRogue files.
+- [ ] Resize library game tiles without changing game launch behavior.
+- [ ] Add Spotify listening area with clear signed-out playback limits.
+- [ ] Check whether All 22 through Ultraviolet can run on the existing static host; omit if unsupported.
+- [ ] Verify artwork, music, and unchanged calculator-to-library flow; report repository sync limits.
+
 - [x] Import http://master234534567.github.io/calc and confirm the build.
 - [x] Observe the source page and controls on desktop and phone; save evidence.
 - [x] Replay the same checks in the preview and record evidence.
