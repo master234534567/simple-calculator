@@ -3,6 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
   <style>
+    :root { --library-panel: #1e1e1e; --library-border: #333; --library-text: #fff; --library-muted: #aaa; --library-accent: #4CAF50; --library-hover: #252525; --library-cover: #173b4a; --library-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); }
     * { box-sizing: border-box; }
     body { font-family: sans-serif; background: #121212; color: #fff; margin: 0; padding: 20px; }
     h1 { text-align: center; color: #4CAF50; margin-top: 0; }
@@ -12,12 +13,12 @@
     .filter-btn.secondary { background: #2a2a2a; border: 1px solid #444; }
     .filter-btn.active { background: #2f6e30; box-shadow: 0 0 0 2px rgba(76,175,80,0.35); }
     input[type="text"] { width: 100%; padding: 12px; font-size: 16px; border-radius: 6px; border: 1px solid #333; background: #1e1e1e; color: #fff; }
-    ul { list-style: none; padding: 0; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
+    ul { list-style: none; padding: 0; max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
     .item { min-width: 0; transition: transform 180ms ease; }
     .item:hover, .item:focus-within { transform: scale(1.05); position: relative; z-index: 1; }
-    .game-card { display: flex; flex-direction: column; width: 100%; padding: 0; overflow: hidden; text-align: left; background: #1e1e1e; border: 1px solid #333; border-radius: 10px; color: #fff; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); }
-    .game-card:hover { background: #252525; }
-    .game-art { position: relative; display: grid; place-items: center; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: linear-gradient(135deg, #173b4a, #25345a 55%, #3c2450); }
+    .game-card { display: flex; flex-direction: column; width: 100%; padding: 0; overflow: hidden; text-align: left; background: var(--library-panel); border: 1px solid var(--library-border); border-radius: 8px; color: var(--library-text); box-shadow: var(--library-shadow); }
+    .game-card:hover { background: var(--library-hover); }
+    .game-art { position: relative; display: grid; place-items: center; width: 100%; aspect-ratio: 1; overflow: hidden; background: var(--library-cover); }
     .game-art img { width: 100%; height: 100%; object-fit: cover; }
     .game-art img.game-logo { object-fit: contain; padding: 12px; image-rendering: pixelated; }
     .game-art-fallback { padding: 12px; color: #fff; font-size: 22px; font-weight: 800; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); }
@@ -51,6 +52,16 @@
     iframe { flex: 1; width: 100%; border: none; }
     #game-error { flex: 1; display: grid; place-items: center; padding: 24px; color: #ddd; text-align: center; }
     #game-error[hidden] { display: none; }
+    .music-area { max-width: 1440px; margin: 0 auto 24px; border-top: 1px solid var(--library-border); border-bottom: 1px solid var(--library-border); padding: 14px 0; }
+    .music-area summary { cursor: pointer; color: var(--library-accent); font-size: 18px; font-weight: bold; }
+    .music-content { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr); gap: 20px; padding-top: 14px; align-items: center; }
+    .music-area iframe { display: block; height: 152px; border-radius: 8px; }
+    .music-form label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .music-form-row { display: flex; gap: 8px; }
+    .music-form-row input { min-width: 0; }
+    .music-note, #music-message { color: var(--library-muted); font-size: 14px; line-height: 1.5; }
+    @media (max-width: 600px) { body { padding: 12px; } ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .music-content { grid-template-columns: minmax(0, 1fr); } .item-title { height: 64px; } }
+    @media (prefers-reduced-motion: reduce) { .item { transition: none; } .item:hover, .item:focus-within { transform: none; } }
   </style>
 
 <script id="fullscreen-script">
@@ -77,7 +88,7 @@
   // Save last played game or scroll position automatically
   window.addEventListener("beforeunload", () => {
     try {
-      const activeGame = document.querySelector("iframe") ? document.querySelector("iframe").src : "";
+      const activeGame = document.getElementById("game-frame")?.src || "";
       const state = {
         lastGame: activeGame,
         scrollPos: window.scrollY,
@@ -150,6 +161,21 @@
       <button type="button" id="shooting-button" class="filter-btn" aria-pressed="false">Shooting</button>
       <button type="button" id="fnaf-button" class="filter-btn" aria-pressed="false">FNAF</button>
     </div>
+    <details class="music-area" id="music-area">
+      <summary>♫ Spotify music</summary>
+      <div class="music-content">
+        <iframe id="spotify-player" title="Spotify music player" src="https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <form class="music-form" id="music-form">
+          <label for="spotify-link">Your track, album, or playlist</label>
+          <div class="music-form-row">
+            <input id="spotify-link" type="text" placeholder="https://open.spotify.com/…" required>
+            <button type="submit" aria-label="Load Spotify music" title="Load Spotify music">▶</button>
+          </div>
+          <p class="music-note">No-login previews. Full songs may require signing in to Spotify. Press play to listen.</p>
+          <p id="music-message" role="status"></p>
+        </form>
+      </div>
+    </details>
     <div id="status">Loading games...</div>
     <ul id="list"></ul>
   </div>
@@ -783,6 +809,27 @@
     racingButton.addEventListener("click", () => setGameFilter("racing"));
     shootingButton.addEventListener("click", () => setGameFilter("shooting"));
     fnafButton.addEventListener("click", () => setGameFilter("fnaf"));
+
+    function getSpotifyEmbedUrl(value) {
+      try {
+        const url = new URL(value.trim());
+        if (url.protocol !== "https:" || url.hostname !== "open.spotify.com") return null;
+        const match = url.pathname.match(/^\/(?:intl-[a-z]+\/)?(?:embed\/)?(track|album|playlist|artist|episode|show)\/([a-zA-Z0-9]{22})\/?$/);
+        return match ? `https://open.spotify.com/embed/${match[1]}/${match[2]}?utm_source=generator` : null;
+      } catch { return null; }
+    }
+
+    document.getElementById("music-form").addEventListener("submit", event => {
+      event.preventDefault();
+      const url = getSpotifyEmbedUrl(document.getElementById("spotify-link").value);
+      const message = document.getElementById("music-message");
+      if (!url) {
+        message.textContent = "Enter a Spotify track, album, artist, playlist, episode, or show link.";
+        return;
+      }
+      document.getElementById("spotify-player").src = url;
+      message.textContent = "";
+    });
 
     loadGames();
   </script>
