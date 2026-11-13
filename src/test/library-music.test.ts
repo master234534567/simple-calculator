@@ -13,8 +13,8 @@ describe("Spotify listening links", () => {
       .toBe("https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT?utm_source=generator");
   });
   it("accepts a localized playlist link", () => {
-    expect(parse("https://open.spotify.com/intl-en/playlist/37i9dQZF1DX4sWSpwq3Li"))
-      .toBe("https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3Li?utm_source=generator");
+    expect(parse("https://open.spotify.com/intl-en/playlist/37i9dQZF1DX4sWSpwq3LiO"))
+      .toBe("https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO?utm_source=generator");
   });
   it("rejects non-Spotify hosts and executable URLs", () => {
     expect(parse("https://open.spotify.com.evil.test/track/4cOdK2wGLETKBW3PvgPWqT")).toBeNull();

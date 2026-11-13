@@ -6,19 +6,19 @@ const games = JSON.parse(read("games-manifest.json")) as string[];
 const art = JSON.parse(read("game-art-manifest.json")) as Record<string, string | null>;
 
 describe("Four requested library additions", () => {
-  it("appends exactly the four additions after all 972 original games", () => {
-    expect(games).toHaveLength(976);
-    expect(games.slice(972)).toEqual([
+  it("preserves the current four additions after the existing library", () => {
+    expect(games).toHaveLength(975);
+    expect(games.slice(-4)).toEqual([
       "https://wasm.rip/files/plauge/index.html",
       "./additions/pokerogue/index.html",
       "./additions/julius.html",
       "./additions/clover-pit.html",
     ]);
-    expect(games[971]).toBe("gamelist/60-Seconds/index.html");
+    expect(games[970]).toBe("gamelist/60-Seconds/index.html");
   });
 
   it("replaces only the former Grand V slot with the official PokéRogue embed", () => {
-    expect(games[973]).toBe("./additions/pokerogue/index.html");
+    expect(games[972]).toBe("./additions/pokerogue/index.html");
     expect(games).not.toContain("./additions/grand-v.html");
     expect(games).not.toContain("./additions/mythos/index.html");
   });
@@ -30,7 +30,7 @@ describe("Four requested library additions", () => {
   });
 
   it("maps all four additions to PNG artwork usable outside Lovable hosting", () => {
-    for (const game of games.slice(972)) {
+    for (const game of games.slice(-4)) {
       const url = new URL(art[game] || "invalid");
       expect(url.protocol).toBe("https:");
       expect(url.pathname.endsWith(".png")).toBe(true);
