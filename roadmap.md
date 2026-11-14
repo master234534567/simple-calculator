@@ -2,6 +2,10 @@
 
 ## Current library updates
 
+- [x] Add a compact YouTube link-and-play area below Spotify; video rendered on desktop/phone, invalid links rejected, 26 tests pass.
+- [x] Start all available cover downloads on library opening; verified 923 eager images and zero lazy images. Actual download time depends on the connection; missing covers still need mappings.
+- [ ] Fix Plague gameplay crashes (blocked: previous wasm.rip URL is 404; restored original catalog launcher, but external Unity game remained black in fresh checks and no cure/virus/plane gameplay could be reached).
+- [ ] Make Silksong playable on 3–4 GB Chromebooks (blocked: external launcher downloads a 1.94 GiB ZIP into memory; requires control of upstream loader/payload and target-device testing, not a library RAM setting).
 - [ ] Sync missing cover mappings and saved addition artwork without modifying PokéRogue files.
 - [ ] Resize library game tiles without changing game launch behavior.
 - [ ] Add Spotify listening area with clear signed-out playback limits.
@@ -44,7 +48,7 @@
 ## Requested replacements and graphics repair
 
 - [x] Replace the former Grand V slot with embedded PokéRogue and its original logo; login screen verified on desktop and phone.
-- [ ] Repair Plague's reported black graphics (blocked: graphics rendered correctly in the browser check; affected device/session needed to reproduce).
+- [ ] Repair Plague's reported black graphics (blocked: original external launcher now reproduced a black canvas; game payload/source fixes and verified gameplay are still needed).
 - [x] Skip Breath of the Wild at the user's request; no verified release link supplied.
 - [x] Test changed entries through the unchanged 0000 popup on desktop and phone; 16 tests pass.
 - [x] Pin Bun installation and explicitly run Vitest through the package script; current tests pass (actual GitHub run remains unverified).
