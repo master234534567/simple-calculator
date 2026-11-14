@@ -9,7 +9,7 @@ describe("Four requested library additions", () => {
   it("preserves the current four additions after the existing library", () => {
     expect(games).toHaveLength(975);
     expect(games.slice(-4)).toEqual([
-      "https://wasm.rip/files/plauge/index.html",
+      "https://master234534567.github.io/calc/gamelist/Plague-Inc/index.html",
       "./additions/pokerogue/index.html",
       "./additions/julius.html",
       "./additions/clover-pit.html",
