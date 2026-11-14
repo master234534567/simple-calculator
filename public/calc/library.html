@@ -60,6 +60,14 @@
     .music-form-row { display: flex; gap: 8px; }
     .music-form-row input { min-width: 0; }
     .music-note, #music-message { color: var(--library-muted); font-size: 14px; line-height: 1.5; }
+    .youtube-content { border-top: 1px solid var(--library-border); margin-top: 16px; padding-top: 16px; }
+    .youtube-content h2 { margin: 0 0 12px; font-size: 18px; color: var(--library-text); }
+    .youtube-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px); gap: 20px; align-items: center; }
+    .youtube-preview { width: 100%; max-width: 320px; aspect-ratio: 16 / 9; background: var(--library-panel); border-radius: 8px; overflow: hidden; }
+    .youtube-preview iframe { height: 100%; border-radius: 0; }
+    .youtube-preview iframe[hidden] { display: none; }
+    #youtube-message { color: var(--library-muted); font-size: 14px; }
+    @media (max-width: 600px) { .youtube-row { grid-template-columns: minmax(0, 1fr); } }
     @media (max-width: 600px) { body { padding: 12px; } ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } .music-content { grid-template-columns: minmax(0, 1fr); } .item-title { height: 64px; } }
     @media (prefers-reduced-motion: reduce) { .item { transition: none; } .item:hover, .item:focus-within { transform: none; } }
   </style>
@@ -175,6 +183,22 @@
           <p id="music-message" role="status"></p>
         </form>
       </div>
+      <section class="youtube-content" aria-labelledby="youtube-heading">
+        <h2 id="youtube-heading">YouTube</h2>
+        <div class="youtube-row">
+          <form class="music-form" id="youtube-form">
+            <label for="youtube-link">Video link</label>
+            <div class="music-form-row">
+              <input id="youtube-link" type="text" placeholder="https://www.youtube.com/watch?v=…" required>
+              <button type="submit" aria-label="Play YouTube video" title="Play YouTube video">▶</button>
+            </div>
+            <p id="youtube-message" role="status"></p>
+          </form>
+          <div class="youtube-preview">
+            <iframe id="youtube-player" title="YouTube video player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen hidden></iframe>
+          </div>
+        </div>
+      </section>
     </details>
     <div id="status">Loading games...</div>
     <ul id="list"></ul>
@@ -604,8 +628,8 @@
         const manifestBase = document.querySelector('meta[name="library-manifest-base"]')?.content
           || new URL("./", window.location.href).href;
         const [response, imageResponse] = await Promise.all([
-          fetch(new URL("games-manifest.json", manifestBase).href, { cache: "no-store" }),
-          fetch(new URL("game-art-manifest.json", manifestBase).href, { cache: "no-store" })
+          fetch(new URL("games-manifest.json", manifestBase).href, { cache: "no-cache" }),
+          fetch(new URL("game-art-manifest.json", manifestBase).href, { cache: "no-cache" })
         ]);
         if (!response.ok) throw new Error("Unable to load game manifest.");
         const filenames = await response.json();
@@ -668,9 +692,9 @@
             const image = document.createElement("img");
             if (filename === "./additions/pokerogue/index.html") image.className = "game-logo";
             image.alt = "";
-            const mappedOfflineImage = filename.startsWith("Offline-HTML-Games-Pack-master/offline/")
-              && Boolean(gameImageManifest[filename]);
-            image.loading = mappedOfflineImage ? "eager" : "lazy";
+            // Begin every cover immediately; prioritize the first visible row.
+            image.loading = "eager";
+            image.fetchPriority = originalIndex < 12 ? "high" : "low";
             image.decoding = "async";
             image.onload = () => {
               fallback.hidden = true;
@@ -829,6 +853,36 @@
       }
       document.getElementById("spotify-player").src = url;
       message.textContent = "";
+    });
+
+    function getYouTubeEmbedUrl(value) {
+      try {
+        const url = new URL(value.trim());
+        if (url.protocol !== "https:") return null;
+        let id = null;
+        if (url.hostname === "youtu.be") {
+          id = url.pathname.slice(1);
+        } else if (["youtube.com", "www.youtube.com", "m.youtube.com", "music.youtube.com", "www.youtube-nocookie.com"].includes(url.hostname)) {
+          id = url.pathname === "/watch" ? url.searchParams.get("v")
+            : url.pathname.match(/^\/(?:shorts|embed|live)\/([^/]+)\/?$/)?.[1];
+        }
+        return id && /^[a-zA-Z0-9_-]{11}$/.test(id)
+          ? `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1` : null;
+      } catch { return null; }
+    }
+
+    document.getElementById("youtube-form").addEventListener("submit", event => {
+      event.preventDefault();
+      const url = getYouTubeEmbedUrl(document.getElementById("youtube-link").value);
+      const message = document.getElementById("youtube-message");
+      if (!url) {
+        message.textContent = "Enter a valid YouTube video link.";
+        return;
+      }
+      const player = document.getElementById("youtube-player");
+      player.src = url;
+      player.hidden = false;
+      message.textContent = "Some videos cannot be played outside YouTube.";
     });
 
     loadGames();
