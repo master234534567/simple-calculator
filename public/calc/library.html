@@ -719,55 +719,10 @@
           item.append(button);
           fragment.append(item);
         });
-        // PlayTab Big Picture game card
-        const playtabItem = document.createElement("li");
-        playtabItem.className = "item";
-        playtabItem.dataset.originalIndex = String(filenames.length);
-        playtabItem.dataset.name = "playtab big picture";
-        playtabItem.dataset.popular = "false";
-        playtabItem.dataset.new = "true";
-        playtabItem.dataset.title = "PlayTab Big Picture";
-        playtabItem.dataset.filename = "https://bigpicture.playtab.fun/pt/library";
 
-        for (const category of Object.keys(gameCategoryGroups)) {
-          playtabItem.dataset[category] = "false";
-          playtabItem.dataset[`${category}Rank`] = "-1";
-        }
-
-        const playtabCard = document.createElement("button");
-        playtabCard.className = "game-card";
-        playtabCard.type = "button";
-        playtabCard.setAttribute("aria-label", "Play PlayTab Big Picture");
-
-        const playtabArt = document.createElement("span");
-        playtabArt.className = "game-art";
-
-        const playtabLogo = document.createElement("span");
-        playtabLogo.className = "game-art-fallback";
-        playtabLogo.textContent = "PLAYTAB";
-
-        const playtabBadge = document.createElement("span");
-        playtabBadge.className = "game-badge new";
-        playtabBadge.textContent = "NEW";
-
-        playtabArt.append(playtabLogo, playtabBadge);
-
-        const playtabName = document.createElement("span");
-        playtabName.className = "item-title";
-        playtabName.textContent = "PlayTab Big Picture";
-
-        playtabCard.append(playtabArt, playtabName);
-
-        playtabCard.onclick = () => openGame(
-          "https://bigpicture.playtab.fun/pt/library",
-          "PlayTab Big Picture"
-        );
-
-        playtabItem.append(playtabCard);
-        fragment.append(playtabItem);
         list.append(fragment);
         status.textContent = filenames.length === 0 ? "No games found." : "";
-        document.getElementById("game-count").textContent = `Total Games: ${filenames.length + 1}`;
+        document.getElementById("game-count").textContent = `Total Games: ${filenames.length}`;
         filterItems();
       } catch (error) {
         status.textContent = error.message;
