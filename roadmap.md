@@ -2,6 +2,10 @@
 
 ## Current library updates
 
+- [ ] Add a compact YouTube link-and-play area below Spotify and verify playback and invalid links.
+- [ ] Start all cover downloads when the library opens rather than waiting for scrolling.
+- [ ] Check Plague's previous launcher and reproduce reported loading/crash failures.
+- [ ] Assess Silksong Chromebook memory requirements; apply only supported optimizations.
 - [ ] Sync missing cover mappings and saved addition artwork without modifying PokéRogue files.
 - [ ] Resize library game tiles without changing game launch behavior.
 - [ ] Add Spotify listening area with clear signed-out playback limits.
